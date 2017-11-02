@@ -1,0 +1,11 @@
+﻿<p>
+    @using (Html.BeginForm("CrearComentario", "Articulos", FormMethod.Post, new { id = "formularioPost" }))
+    {
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required="true" placeholder="Insira seu Nome:" />
+        <label for="comentario">Comentario:</label>
+        <input type="text" id="comentario" name="comentario" required="true" placeholder="Insira seu Comentario:" />
+        <input type="submit" value="Salvar" id="comentar" />
+        <input type="hidden" value="@ViewBag.Id" id="" name="Id" />
+    }
+</p>

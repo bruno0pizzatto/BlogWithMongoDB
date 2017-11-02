@@ -1,0 +1,21 @@
+﻿@using BlogWithMongoDB.Models;
+
+@{
+    ViewBag.Title = "Detalhe";
+    Post post = new Post();    
+}
+
+<section id="conteudo">
+    @using (Html.BeginForm("Create", "Post", FormMethod.Post, new { id = "formulario" }))
+    {
+        <div style="display: inline-grid;">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" />
+            <label for="titulo">Texto:</label>
+            <textarea id="texto" name="texto" rows="3" cols="40"></textarea>
+            <label for="tags">Tags</label>
+            <input type="text" id="tags" name="tags" />
+            <input type="submit" value="Salvar!" id="Salvar" />
+        </div>
+    }
+</section>

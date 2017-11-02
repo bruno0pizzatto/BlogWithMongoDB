@@ -1,0 +1,41 @@
+﻿@using BlogWithMongoDB.Models;
+
+@{
+    ViewBag.Title = "Index";
+    IEnumerable<Post> posts = null;
+
+    if(ViewBag.Posts != null)
+    {
+        posts = (IEnumerable<Post>)ViewBag.Posts;
+    }    
+}
+
+<section id="listado">
+    @Html.ActionLink("Novo", "DetalheNew", "Post", new { area = "" }, new { @class = "navbar-brand" })
+    <ul style="display: inline-block;">
+        @foreach (var post in posts)
+        {
+            <li>
+                <p>
+                <a class="Titulo" href="@Url.Action("Detalhe", "Post", new { Guid = post.id })">@post.texto</a>
+                    <br />
+                    (@post.data)
+                </p>
+                @post.Comentarios.Count() Comentarios, Tags:
+                @foreach (Tag tagItem in post.Tags)
+                {
+                    <text> @tagItem.tag ;</text>
+                }
+                <p>
+                    <a class="Delete" href="@Url.Action("Delete", "Post",
+                            new { Guid = post.id })">
+                        Apagar
+                    </a>
+                </p>
+            </li> 
+        }
+    </ul>
+</section>
+
+
+
